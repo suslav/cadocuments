@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AngularFireModule, } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { DocumentService } from './services/document.service';
 var fireAppconfig = {
   apiKey: "AIzaSyDqnNcj9H45NVXd3Rw4pGXRQYfe2czCxaU",
   authDomain: "document-34e6c.firebaseapp.com",
@@ -55,7 +56,7 @@ var fireAppconfig = {
     MatButtonModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [DocumentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

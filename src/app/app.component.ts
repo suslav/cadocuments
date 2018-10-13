@@ -9,7 +9,12 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class AppComponent {
   title = 'filetax2';
    constructor(private af:AngularFireDatabase) { 
-     this.af.object('connected').valueChanges().subscribe(x=>console.log(x))
+   let obser= this.af.object('connected').valueChanges();
+    obser.subscribe({
+      next:val=>console.log(val,'test'),
+      error:error=>console.log(error),
+      complete:()=>console.log('done')
+    })
    }
   ngOnInit() {
   }
