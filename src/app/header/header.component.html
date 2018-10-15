@@ -1,3 +1,16 @@
-<p>
-  header works!
-</p>
+<mat-toolbar color="primary">
+    <div class="container-fluid" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        <div fxFlex="35%" fxFlexOffset="50px">
+
+            <!--<div *ngIf="!(authService.user$| async)?.uid">
+                <button mat-button (click)="authService.login()">Login</button>
+            </div>
+            <div *ngIf="(authService.user$| async)?.uid">
+                <button mat-button (click)="authService.logout()">Logout</button>
+            </div>-->
+        </div>
+    </div>
+    <!--<mat-toolbar-row>
+        <span>Document Infromation</span>
+    </mat-toolbar-row>-->
+</mat-toolbar>

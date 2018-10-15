@@ -20,9 +20,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { AngularFireModule, } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule ,} from 'angularfire2/database';
+import{AngularFireAuthModule } from 'angularfire2/auth'
+import { AngularFireDatabase, } from 'angularfire2/database';
 import { DocumentService } from './services/document.service';
+import { AuthService } from './services/auth.service';
+import{AuthGuard} from 'src/app/auth/auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 var fireAppconfig = {
   apiKey: "AIzaSyDqnNcj9H45NVXd3Rw4pGXRQYfe2czCxaU",
   authDomain: "document-34e6c.firebaseapp.com",
@@ -39,7 +45,9 @@ var fireAppconfig = {
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -48,15 +56,17 @@ var fireAppconfig = {
     FlexLayoutModule,
     AngularFireModule.initializeApp(fireAppconfig),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    AppRoutingModule
   ],
-  providers: [DocumentService],
+  providers: [AuthGuard,DocumentService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
