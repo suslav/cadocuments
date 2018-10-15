@@ -11,23 +11,34 @@
     </div>
     <div fxFlex style="border:1px solid yellow">
       <mat-card class="example-card">
+        <form #f="ngForm" (ngSubmit)="save(f.value,f.valid)"  class="example-form">
+          <div fxLayout.xs="row">
+            <div fxFlex>
+              <mat-form-field class="example-form-width">
 
-        <mat-card-header>
+                <input name="email" matInput placeholder="Email"
+                 [ngModel]="userLogin.email" #email="ngModel">
 
-          <mat-card-title>
-            <div style="text-align:center">Login</div>
-          </mat-card-title>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout.xs="row">
+            <div fxFlex>
+              <mat-form-field class="example-form-width">
+                <input type="password" name="password" matInput placeholder="Password" [ngModel]="userLogin.password"
+                #password="ngModel">
 
-        </mat-card-header>
-        <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-        <mat-card-content>
-          <input type="text">
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout.xs="row">
+          
+            <div fxFlex>
+              <button type="submit" mat-button>Login</button>
+            </div>
+          </div>
 
-        </mat-card-content>
-        <mat-card-actions>
-
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
+        </form>
       </mat-card>
     </div>
     <div fxFlex="35%" fxFlexOffset="50px">

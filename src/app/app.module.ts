@@ -8,11 +8,12 @@ import {
   MatGridListModule,
   MatMenuModule,
   MatIconModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatInputModule,
 } from "@angular/material"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -29,6 +30,9 @@ import{AuthGuard} from 'src/app/auth/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+
+import{ToastaModule} from 'ngx-toasta';
+
 var fireAppconfig = {
   apiKey: "AIzaSyDqnNcj9H45NVXd3Rw4pGXRQYfe2czCxaU",
   authDomain: "document-34e6c.firebaseapp.com",
@@ -52,6 +56,7 @@ var fireAppconfig = {
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([]),
     FlexLayoutModule,
     AngularFireModule.initializeApp(fireAppconfig),
@@ -64,9 +69,12 @@ var fireAppconfig = {
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    AppRoutingModule
+    MatInputModule,
+    AppRoutingModule,
+    ToastaModule.forRoot()
   ],
   providers: [AuthGuard,DocumentService,AuthService],
+  exports:[ToastaModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
