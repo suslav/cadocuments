@@ -25,7 +25,7 @@ this.router.navigate(['/home']);
   }
   doRegister(value){
    return new Promise<any>((resolve, reject) => {
-     firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+     firebase.auth().signInAndRetrieveDataWithCredential(value.email, value.password)
      .then(res => {
        resolve(res);
      }, err => reject(err))

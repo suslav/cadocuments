@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
  
   constructor( private authService:AuthService,private toastaService:ToastaService,private toastaConfig:ToastaConfig) { 
     
-    this.toastaConfig.theme='material';
-    this.toastaService.default('success');
+     this.toastaConfig.theme = 'material';
+    this.toastaService.success('success');
   }
 
   ngOnInit() {
