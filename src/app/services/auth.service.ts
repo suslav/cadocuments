@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   user$: Observable<firebase.User>
-  constructor(private afAuth: AngularFireAuth
-
-  ) {
+  itemsRef:any;
+  constructor(private afAuth: AngularFireAuth,db: AngularFireDatabase) {
     this.user$ = this.afAuth.authState;
+    this.itemsRef = db.list('clients');
+
 
   }
   login() {
@@ -34,4 +36,5 @@ export class AuthService {
         }, err => reject(err))
     })
   }
+ 
 }
