@@ -29,7 +29,7 @@ import { AuthService } from './services/auth.service';
 import{AuthGuard} from 'src/app/auth/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
+
 
 import{ToastaModule} from 'ngx-toasta';
 
@@ -51,7 +51,7 @@ var fireAppconfig = {
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    HomeComponent
+  
   ],
   imports: [
     BrowserModule,
