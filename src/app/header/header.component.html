@@ -1,7 +1,11 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <div fxFlex="95%">
-                        Dashboard
+        <div fxFlex="10%">
+            <span>Dashboard</span>
+        </div>
+        <div fxFlex="85%">
+                <a routerLink="/clientregistration" style="color:white">Client Registration</a>
+           
         </div>
         <div fxFlex="5%">
             <div *ngIf="(authService.user$| async)?.uid">

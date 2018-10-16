@@ -11,6 +11,7 @@ import {
   MatToolbarModule,
   MatInputModule,
 } from "@angular/material"
+import {MatRadioModule} from '@angular/material/radio'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import{ToastaModule} from 'ngx-toasta';
+import { ClientregistrationComponent } from './client/clientregistration/clientregistration.component';
 
 var fireAppconfig = {
   apiKey: "AIzaSyDqnNcj9H45NVXd3Rw4pGXRQYfe2czCxaU",
@@ -51,6 +53,7 @@ var fireAppconfig = {
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
+    ClientregistrationComponent,
   
   ],
   imports: [
@@ -70,6 +73,7 @@ var fireAppconfig = {
     MatButtonModule,
     MatToolbarModule,
     MatInputModule,
+    MatRadioModule,
     AppRoutingModule,
     ToastaModule.forRoot()
   ],

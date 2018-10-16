@@ -1,0 +1,78 @@
+<div class="container-fluid" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div fxFlex="10%">
+    <mat-card>
+      <span>Side Navbar</span>
+    </mat-card>
+
+  </div>
+  <div fxFlex>
+    <mat-card>
+      <div fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        <div fxFlex="35%">
+          <form #f="ngForm" (ngSubmit)="clientRegister(f.value,f.valid)" class="example-form">
+            <div fxLayout="row" fxLayoutGap="20px">
+              <div fxFlex>
+                <mat-form-field  class="example-full-width">
+                  <input matInput  name="firstName" [ngModel]="clientRegistration.firstName" placeholder="First name" #firstName="ngModel">
+                </mat-form-field>
+              </div>
+              <div fxFlex>
+                <mat-form-field class="example-full-width">
+                  <input matInput name="lastName"  [ngModel]="clientRegistration.lastName" placeholder="Last Name" #lastName="ngModel">
+                </mat-form-field>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px">
+              <div fxFlex>
+                  <mat-radio-group name="gender" [ngModel]="clientRegistration.gender" #gender="ngModel">
+                     <mat-radio-button value="Male">Male</mat-radio-button>
+                     <mat-radio-button value="FeMale">Female</mat-radio-button>
+                    </mat-radio-group>
+              </div>
+              
+            </div>
+            <div fxLayout="row">&nbsp;</div>
+            <div fxLayout="row" fxLayoutGap="20px">
+              <div fxFlex>
+                <mat-form-field class="example-full-width">
+                  <textarea matInput name="address" [ngModel]="clientRegistration.address" #address="ngModel" placeholder="Address"></textarea>
+                </mat-form-field>
+              </div>
+
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px">
+                <div fxFlex>
+                    <mat-form-field class="example-full-width">
+                        <input matInput name="city" [ngModel]="clientRegistration.city" #city="ngModel" placeholder="City">
+                      </mat-form-field>
+                </div>
+                <div fxFlex>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="State" name="state" [ngModel]="clientRegistration.state" #state="ngModel">
+                      </mat-form-field>
+                  </div>
+                  <div fxFlex>
+                      <mat-form-field class="example-full-width">
+                          <input matInput #postalCode maxlength="6" placeholder="Postal Code"  [ngModel]="clientRegistration.postcode" value="521331" name="postcode" #postcode="ngModel">
+                          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div fxLayout.xs="row">
+          
+                    <div fxFlex>
+                      <button type="submit" mat-button>Save</button>
+                    </div>
+                  </div>
+          </form>
+        </div>
+        <div fxFlex>
+        
+        </div>
+      </div>
+
+    </mat-card>
+  </div>
+
+
+</div>
