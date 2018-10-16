@@ -7,6 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   providedIn: 'root'
 })
 export class DocumentService {
+  
   user$: Observable<firebase.User>
   itemsRef:any;
 document$:AngularFireObject<any[]>
@@ -14,7 +15,7 @@ document$:AngularFireObject<any[]>
     this.document$=this.db.object('connected')
     this.user$ = this.afAuth.authState;
     this.itemsRef = db.list('clients');
-    
+
     //   let obser= this.af.object('connected').valueChanges();
     // obser.subscribe({
     //   next:val=>console.log(val,'test'),
