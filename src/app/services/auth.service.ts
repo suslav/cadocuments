@@ -10,24 +10,28 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth
 
   ) {
-    this.user$=this.afAuth.authState;
+    this.user$ = this.afAuth.authState;
 
   }
-  login(){
-this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+  login() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
 
-.catch(error=>console.log(error,'error'));
+      .catch(error => console.log(error, 'error'));
   }
-  logout(){
-this.afAuth.auth.signOut();
+
+  logout() {
+    return new Promise<any>((resolve, reject) => {
+      this.afAuth.auth.signOut();
+    })
+  
 
   }
-  doRegister(value){
-   return new Promise<any>((resolve, reject) => {
-    this.afAuth.auth.signInWithEmailAndPassword(value.email,value.password)
-     .then(res => {
-       resolve(res);
-     }, err => reject(err))
-   })
- }
+  doRegister(value) {
+    return new Promise<any>((resolve, reject) => {
+      this.afAuth.auth.signInWithEmailAndPassword(value.email, value.password)
+        .then(res => {
+          resolve(res);
+        }, err => reject(err))
+    })
+  }
 }

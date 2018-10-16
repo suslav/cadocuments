@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import{FormControl,Validators,FormGroupDirective} from '@angular/forms';
-import{ErrorStateMatcher} from '@angular/material/core';
+
 import{Userlogin} from 'src/app/models/userlogin';
 import { Router } from '@angular/router';
 import{ToastaService,ToastaConfig} from 'ngx-toasta'
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   constructor( private authService:AuthService,private toastaService:ToastaService,private toastaConfig:ToastaConfig,private router:Router) { 
     
      this.toastaConfig.theme = 'material';
-    this.toastaService.success('success');
+    
   }
 
   ngOnInit() {
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
 }  tryRegister(values){
     this.authService.doRegister(values).then(res=>{
       console.log(res,'res');
+      this.toastaService.success('success');
       this.router.navigate(['/dashboard'])
     },error=>{
       console.log(error,'error');
