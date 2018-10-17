@@ -4,6 +4,8 @@
 */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 body{
     margin: 0;
     font-family: Roboto sans-serif;

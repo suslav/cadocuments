@@ -1,7 +1,9 @@
 <div class="container-fluid" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
     <div fxFlex="10%">
         <mat-card>
-            <span>  <a routerLink="/clientregistration">Client Registration</a></span>
+            <span>
+                <a routerLink="/clientregistration">Client Registration</a>
+            </span>
         </mat-card>
 
     </div>
@@ -9,9 +11,25 @@
         <mat-card>
             <div fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
                 <div fxFlex>
-                  <div *ngFor="let o of  registerClient">
-                      {{o.clientInfo |json}}
-                  </div>
+                    <div class="table-responsive">
+                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sno</th>
+                                    <th>Clients Name</th>
+                                    <th>View Client</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr *ngFor="let data of registerClient; let i = index">
+                                        <td style="font-size: 12px;">{{i+1}}</td>
+                                        <td style="font-size: 12px;">{{data.clientInfo.firstName}}</td>
+                                        <td style="font-size: 12px"><a routerLink="/viewclient">View</a></td>
+                                       
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </mat-card>

@@ -6,11 +6,14 @@ import { LoginComponent } from './login/login.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { ClientregistrationComponent } from './client/clientregistration/clientregistration.component';
+import { ViewclientComponent } from './client/viewclient/viewclient.component';
+
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'clientregistration', component: ClientregistrationComponent, canActivate: [AuthGuard] },
+  { path:'viewclient', component:ViewclientComponent, canActivate:[AuthGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 @NgModule({
