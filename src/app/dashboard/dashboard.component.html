@@ -1,3 +1,19 @@
+<div class="container-fluid" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div fxFlex="10%">
+        <mat-card>
+            <span>  <a routerLink="/clientregistration">Client Registration</a></span>
+        </mat-card>
 
-<span>Dash board </span>
-
+    </div>
+    <div fxFlex>
+        <mat-card>
+            <div fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                <div fxFlex>
+                  <div *ngFor="let o of  registerClient">
+                      {{o.clientInfo |json}}
+                  </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>
