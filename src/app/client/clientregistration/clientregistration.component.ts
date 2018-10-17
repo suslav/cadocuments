@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Clients } from 'src/app/models/userlogin';
-import { AuthService } from '../../services/auth.service';
+
 import{FormBuilder, Validators, ControlContainer, FormGroup, FormControl} from '@angular/forms';
+import { DocumentService } from 'src/app/services/document.service';
 
 @Component({
   selector: 'app-clientregistration',
@@ -10,13 +11,13 @@ import{FormBuilder, Validators, ControlContainer, FormGroup, FormControl} from '
 })
 export class ClientregistrationComponent implements OnInit {
   public clientRegistration: Clients;
-  constructor(private authservice:AuthService) { }
+  constructor(private documentserivice:DocumentService) { }
 
   ngOnInit() {
     this.loadClientRegist();
   }
   clientRegister(clientRegistration:Clients,isValid:boolean){
-      this.authservice.clientRegister(clientRegistration).then(res=>{
+      this.documentserivice.clientRegister(clientRegistration).then(res=>{
         console.log(res);
       },error=>{
         console.log(error)
