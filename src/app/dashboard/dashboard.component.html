@@ -24,7 +24,7 @@
                                     <tr *ngFor="let data of registerClient; let i = index">
                                         <td style="font-size: 12px;">{{i+1}}</td>
                                         <td style="font-size: 12px;">{{data.clientInfo.firstName}}</td>
-                                        <td style="font-size: 12px"><a routerLink="/viewclient">View</a></td>
+                                        <td style="font-size: 12px"><a routerLink="/viewclient/{{data.key}}">View</a></td>
                                        
                                     </tr>
                                 </tbody>
