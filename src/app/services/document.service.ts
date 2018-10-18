@@ -17,7 +17,7 @@ export class DocumentService {
     private db: AngularFireDatabase,
     private persistance: PersistanceService) {
     this.uid = this.persistance.get('userId');
-    this.itemsRef = this.db.list(this.uid);
+    this.itemsRef = this.db.list('admin');
     // this.document$=this.db.object('connected')
     // this.user$ = this.afAuth.authState;
 
